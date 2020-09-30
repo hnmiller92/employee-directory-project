@@ -2,6 +2,7 @@ package org.launchcode.employeedirectory.data;
 
 import org.launchcode.employeedirectory.models.Employee;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,14 @@ public class EmployeeData {
 
     public static void add(Employee employee) {
         employees.put(employee.getId(), employee);
+    }
+
+    public static Employee getById(int id) {
+        return employees.get(id);
+    }
+
+    public static Collection<Employee> getAll() {
+        return employees.values();
     }
 
 }

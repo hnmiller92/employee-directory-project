@@ -7,16 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value="")
     @GetMapping
     public String index() {
         return "index";
     }
 
-    @RequestMapping(value="home")
-    @GetMapping
-    public String home() {
-        return "home";
-    }
 
 }
