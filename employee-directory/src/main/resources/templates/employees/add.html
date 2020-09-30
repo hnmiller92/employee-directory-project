@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1>Add Employee</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" action="/employees/add">
+    <div class="form-group">
+        <label>First Name
+            <input th:field="${employee.firstName}" class="form-control">
+        </label>
+        <label>Last Name
+            <input th:field="${employee.lastName}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Position
+            <input th:field="${employee.position}" class="form-control">
+        </label>
+    </div>
+</form>
+
+</body>
+</html>

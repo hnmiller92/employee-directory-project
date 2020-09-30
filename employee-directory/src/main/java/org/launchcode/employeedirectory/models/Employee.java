@@ -7,12 +7,16 @@ public class Employee {
     private int id;
     private static int nextId = 1;
 
-    private String name;
+    private String firstName;
+    private String lastName;
     private String position;
 
-    public Employee(String name, String position) {
+
+
+    public Employee(String firstName, String lastName,  String position) {
         this();
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.position = position;
     }
 
@@ -21,12 +25,20 @@ public class Employee {
         nextId++;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPosition() {
@@ -43,7 +55,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return name;
+        return firstName + lastName;
     }
 
     @Override
