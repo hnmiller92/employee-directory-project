@@ -14,9 +14,16 @@ public class EmployeeData {
         employees.put(employee.getId(), employee);
     }
 
+    public static void remove(int id) {
+        if (employees.containsKey(id)) {
+            employees.remove(id);
+        }
+    }
+
     public static Employee getById(int id) {
         return employees.get(id);
     }
+
 
     public static Collection<Employee> getAll() {
         return employees.values();

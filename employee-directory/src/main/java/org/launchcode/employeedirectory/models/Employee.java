@@ -12,7 +12,6 @@ public class Employee {
     private String position;
 
 
-
     public Employee(String firstName, String lastName,  String position) {
         this();
         this.firstName = firstName;

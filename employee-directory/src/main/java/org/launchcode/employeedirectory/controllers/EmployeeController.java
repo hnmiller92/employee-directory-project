@@ -6,10 +6,7 @@ import org.launchcode.employeedirectory.models.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -40,6 +37,24 @@ public class EmployeeController {
         }
 
         EmployeeData.add(newEmployee);
+        return "redirect:";
+    }
+
+    @GetMapping("delete")
+    public String displayDeleteEmployeeForm(Model model) {
+        model.addAttribute("title","Delete Employee");
+        model.addAttribute("employees", EmployeeData.getAll());
+        return "employees/delete";
+    }
+
+    @PostMapping("delete")
+    public String processDeleteEmployeeForm(@RequestParam (required = false) int[] employeeIds) {
+
+        if (employeeIds != null) {
+            for (int id : employeeIds) {
+                EmployeeData.remove(id);
+            }
+        }
         return "redirect:";
     }
 
