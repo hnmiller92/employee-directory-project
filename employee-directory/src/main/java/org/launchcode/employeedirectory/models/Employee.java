@@ -1,5 +1,7 @@
 package org.launchcode.employeedirectory.models;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 public class Employee {
@@ -11,8 +13,7 @@ public class Employee {
     private String lastName;
     private String position;
 
-
-    public Employee(String firstName, String lastName,  String position) {
+    public Employee(String firstName, String lastName, String position) {
         this();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -51,6 +52,7 @@ public class Employee {
     public int getId() {
         return id;
     }
+
 
     @Override
     public String toString() {

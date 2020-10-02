@@ -9,7 +9,10 @@
 
 <p th:unless="${employees} and ${employees.size()}">No employees.</p>
 
-<table class="table table-bordered table-sm">
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+<div class="table-responsive">
+<table class="sortable table table-bordered">
     <thead>
         <tr>
             <th>ID</th>
@@ -25,6 +28,6 @@
         <td th:text="${employee.position}"></td>
     </tr>
 </table>
-
+</div>
 </body>
 </html>
