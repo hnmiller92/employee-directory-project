@@ -19,6 +19,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Position</th>
+            <th>Date of birth</th>
         </tr>
     </thead>
     <tr th:each="employee : ${employees}">
@@ -26,6 +27,7 @@
         <td th:text="${employee.firstName}"></td>
         <td th:text="${employee.lastName}"></td>
         <td th:text="${employee.position}"></td>
+        <td th:text="${employee.month + '/' + employee.day + '/' + employee.year}" ></td>
     </tr>
 </table>
 </div>
