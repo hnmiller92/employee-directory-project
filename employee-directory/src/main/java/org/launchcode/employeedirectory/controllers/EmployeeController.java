@@ -3,6 +3,7 @@ package org.launchcode.employeedirectory.controllers;
 
 import org.launchcode.employeedirectory.data.EmployeeData;
 import org.launchcode.employeedirectory.models.Employee;
+import org.launchcode.employeedirectory.models.EmployeeStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -25,6 +26,7 @@ public class EmployeeController {
     public String displayAddEmployeeForm(Model model) {
         model.addAttribute("title","Add Employee");
         model.addAttribute(new Employee());
+        model.addAttribute("statuses", EmployeeStatus.values());
         return "employees/add";
     }
 

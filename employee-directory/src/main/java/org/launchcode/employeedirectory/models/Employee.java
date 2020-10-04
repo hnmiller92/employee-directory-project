@@ -1,5 +1,8 @@
 package org.launchcode.employeedirectory.models;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.Month;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,19 +13,29 @@ public class Employee {
     private int id;
     private static int nextId = 1;
 
+    @NotBlank(message = "First name is required.")
     private String firstName;
+
+    @NotBlank(message = "Last name is required.")
     private String lastName;
+
+    private String employeeStatus;
+
     private String position;
+
     private int year;
     private int day;
     private int month;
 
+    private EmployeeStatus status;
 
-    public Employee(String firstName, String lastName, String position) {
+
+    public Employee(String firstName, String lastName, String position, EmployeeStatus status) {
         this();
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
+        this.status = status;
     }
 
     public Employee() {
@@ -81,6 +94,22 @@ public class Employee {
 
     public void setMonth(int month) {
         this.month = month;
+    }
+
+    public String getEmployeeStatus() {
+        return employeeStatus;
+    }
+
+    public void setEmployeeStatus(String employeeStatus) {
+        this.employeeStatus = employeeStatus;
+    }
+
+    public EmployeeStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(EmployeeStatus status) {
+        this.status = status;
     }
 
     @Override
