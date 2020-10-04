@@ -23,18 +23,6 @@
     </ul>
 </nav>
 
-
-<table th:fragment="employee-table" class="table table-striped row justify-content-center">
-    <tr th:each="employee : ${employees}">
-        <td>
-            <p th:text="'ID: ' + ${employee.id}"></p>
-            <p th:text="'Name: ' + ${employee.firstName} + ' ' + ${employee.lastName}"></p>
-            <p th:text="'Status: ' + ${employee.status.displayName}"></p>
-            <p th:text="'Date of birth: ' + ${employee.month + '/' + employee.day + '/' + employee.year}"></p>
-        </td>
-    </tr>
-    <br>
-</table>
-
 </body>
+
 </html>
