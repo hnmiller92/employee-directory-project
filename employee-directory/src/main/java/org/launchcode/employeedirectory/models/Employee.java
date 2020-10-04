@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Employee {
 
     private int id;
-    private static int nextId = 1;
+    private static int nextId = 0;
 
     @NotBlank(message = "First name is required.")
     private String firstName;
@@ -39,8 +39,7 @@ public class Employee {
     }
 
     public Employee() {
-        this.id = nextId;
-        nextId++;
+        id = nextId++;
     }
 
 

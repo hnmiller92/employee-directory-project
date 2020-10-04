@@ -10,7 +10,7 @@
 <body>
 
 <nav th:fragment="navigation" style="background-color: #e3f2fd;">
-    <ul class="nav">
+    <ul class="nav justify-content-center">
         <li class="nav-item">
             <a class="nav-link" href="/employees">List All Employees</a>
         </li>
@@ -21,8 +21,20 @@
             <a class="nav-link" href="/employees/delete">Delete Employee</a>
         </li>
     </ul>
-
 </nav>
+
+
+<table th:fragment="employee-table" class="table table-striped row justify-content-center">
+    <tr th:each="employee : ${employees}">
+        <td>
+            <p th:text="'ID: ' + ${employee.id}"></p>
+            <p th:text="'Name: ' + ${employee.firstName} + ' ' + ${employee.lastName}"></p>
+            <p th:text="'Status: ' + ${employee.status.displayName}"></p>
+            <p th:text="'Date of birth: ' + ${employee.month + '/' + employee.day + '/' + employee.year}"></p>
+        </td>
+    </tr>
+    <br>
+</table>
 
 </body>
 </html>
