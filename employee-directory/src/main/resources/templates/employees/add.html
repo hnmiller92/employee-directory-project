@@ -9,16 +9,38 @@
 
 <form method="post" action="/employees/add">
     <div class="form-group">
-        <label>First Name
-            <input th:field="${employee.firstName}" class="form-control">
-        </label>
-        <p class="error" th:errors="${employee.firstName}" style="color:red"></p>
-        <label>Last Name
-            <input th:field="${employee.lastName}" class="form-control">
-        </label>
-        <p class="error" th:errors="${employee.lastName}" style="color:red"></p>
+        <div class = "center text-center" style="border-style: solid">
+            <h2>Demographics</h2>
+            <label>First Name
+                <input th:field="${employee.firstName}" class="form-control">
+            </label>
+            <p class="error" th:errors="${employee.firstName}" style="color:red"></p>
+            <label>Last Name
+                <input th:field="${employee.lastName}" class="form-control">
+            </label>
+            <p class="error" th:errors="${employee.lastName}" style="color:red"></p><br>
+            <p>Date of birth (dd/mm/yyyy)</p>
+            <label>Month
+                <input type="number" th:field="${employee.month}" min="01" max="12">
+            </label>
+            <label>Day
+                <input type="number" th:field="${employee.day}" min="01" max="31">
+            </label>
+            <label>Year
+                <input type="number" th:field="${employee.year}" min="1920" max="2002">
+            </label>
+        </div>
     </div>
-    <div class="form-group">
+    <div class = "center text-center" style="border-style: solid">
+        <h2>Employment Information</h2>
+        <label>Employee Status:
+            <select th:field="${employee.status}">
+                <option th:each="status : ${statuses}" th:value="${status}" th:text="${status.displayName}"></option>
+            </select>
+        </label><br>
+        <label>Position
+            <input th:field="${employee.position}" class="form-control">
+        </label>
         <p>Start Date (dd/mm/yyyy)</p>
         <label>Month
             <input type="number" th:field="${employee.startMonth}" min="01" max="12">
@@ -27,34 +49,10 @@
             <input type="number" th:field="${employee.startDay}" min="01" max="31">
         </label>
         <label>Year
-            <input type="number" th:field="${employee.startYear}">
+            <input type="number" th:field="${employee.startYear}" min="1950" max="2020">
         </label>
-    </div>
-    <div>
-        <label>Employee Status:
-            <select th:field="${employee.status}">
-                <option th:each="status : ${statuses}" th:value="${status}" th:text="${status.displayName}"></option>
-            </select>
-        </label>
-    </div>
-    <div class="form-group">
-        <label>Position
-            <input th:field="${employee.position}" class="form-control">
-        </label>
-    </div>
-    <div>
-        <p>Date of birth (dd/mm/yyyy)</p>
-        <label>Month
-            <input type="number" th:field="${employee.month}" min="01" max="12">
-        </label>
-        <label>Day
-            <input type="number" th:field="${employee.day}" min="01" max="31">
-        </label>
-        <label>Year
-            <input type="number" th:field="${employee.year}" min="1920" max="2002">
-        </label>
-    </div>
-    <div>
+    </div><br>
+    <div style="text-align: center">
         <input type="submit" value="Add Employee" class="btn btn-success">
     </div>
 </form>

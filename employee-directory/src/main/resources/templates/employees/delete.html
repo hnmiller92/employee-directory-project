@@ -3,14 +3,14 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<h1>Delete Employee</h1>
+<h1 class="text-center">Delete Employee</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" action="/employees/delete">
+<form method="post" action="/employees/delete" class="text-center">
     <p th:unless="${employees} and ${employees.size()}" class="text-center">No employees.</p>
 
-    <div th:each="employee : ${employees}" class="form-group">
+    <div th:each="employee : ${employees}" class="form-group text-center">
         <label>
             <span th:text="${employee.firstName + ' ' + employee.lastName}"></span><br>
             <input type="checkbox" name="employeeIds" th:value="${employee.id}" class="text-center">
