@@ -8,16 +8,14 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <form method="post" action="/employees/delete">
+    <p th:unless="${employees} and ${employees.size()}" class="text-center">No employees.</p>
 
-    <th:block th:each="employee : ${employees}">
-        <div class="form-group">
-            <label>
-                <span th:text="${employee.firstName + ' ' + employee.lastName}"></span>
-                <input type="checkbox" name="employeeIds" th:value="${employee.id}" class="form-control">
-            </label>
-        </div>
-
-    </th:block>
+    <div th:each="employee : ${employees}" class="form-group">
+        <label>
+            <span th:text="${employee.firstName + ' ' + employee.lastName}"></span><br>
+            <input type="checkbox" name="employeeIds" th:value="${employee.id}" class="text-center">
+        </label>
+    </div>
 
     <div>
         <input type="submit" value="Delete Employee" class="btn btn-danger">
