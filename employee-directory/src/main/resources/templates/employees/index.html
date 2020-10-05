@@ -7,23 +7,26 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<p th:unless="${employees} and ${employees.size()}">No employees.</p>
+<p th:unless="${employees} and ${employees.size()}" class="text-center">No employees.</p>
 
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-
 
 <table class="center sortable table table-bordered table-striped">
     <thead>
     <tr>
+        <th>Photo</th>
+        <th>Start Date</th>
         <th>ID</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Employee Status</th>
         <th>Position</th>
-        <th>Date of birth</th>
+        <th>Date of Birth</th>
     </tr>
     </thead>
     <tr th:each="employee : ${employees}">
+        <td><img th:src="@{${employee.src}}" width="100" height="100"/></td>
+        <td th:text="${employee.startMonth + '/' + employee.startDay + '/' + employee.startYear}" ></td>
         <td th:text="${employee.id}"></td>
         <td th:text="${employee.firstName}"></td>
         <td th:text="${employee.lastName}"></td>

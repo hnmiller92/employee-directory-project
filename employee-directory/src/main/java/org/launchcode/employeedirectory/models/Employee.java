@@ -1,11 +1,6 @@
 package org.launchcode.employeedirectory.models;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.time.Month;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
 
 public class Employee {
@@ -19,29 +14,34 @@ public class Employee {
     @NotBlank(message = "Last name is required.")
     private String lastName;
 
-    private String employeeStatus;
-
     private String position;
 
     private int year;
     private int day;
     private int month;
 
+    private int startYear;
+    private int startDay;
+    private int startMonth;
+
     private EmployeeStatus status;
 
+    private int test = this.nextId * 5;
+    private int finalTest = test + 50;
+    private String src = "http://placekitten.com/" + finalTest + "/" + finalTest;
 
-    public Employee(String firstName, String lastName, String position, EmployeeStatus status) {
+    public Employee(String firstName, String lastName, String position, EmployeeStatus status, String src) {
         this();
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
         this.status = status;
+        this.src = src;
     }
 
     public Employee() {
         id = nextId++;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -95,20 +95,44 @@ public class Employee {
         this.month = month;
     }
 
-    public String getEmployeeStatus() {
-        return employeeStatus;
-    }
-
-    public void setEmployeeStatus(String employeeStatus) {
-        this.employeeStatus = employeeStatus;
-    }
-
     public EmployeeStatus getStatus() {
         return status;
     }
 
     public void setStatus(EmployeeStatus status) {
         this.status = status;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
+    public int getStartYear() {
+        return startYear;
+    }
+
+    public void setStartYear(int startYear) {
+        this.startYear = startYear;
+    }
+
+    public int getStartDay() {
+        return startDay;
+    }
+
+    public void setStartDay(int startDay) {
+        this.startDay = startDay;
+    }
+
+    public int getStartMonth() {
+        return startMonth;
+    }
+
+    public void setStartMonth(int startMonth) {
+        this.startMonth = startMonth;
     }
 
     @Override
